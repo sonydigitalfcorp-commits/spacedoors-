@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <header class="header">
@@ -48,10 +49,16 @@
     <main>
       <!-- Hero -->
       <section class="hero">
+        <div class="hero-video-wrapper">
+          <video class="hero-video" autoplay muted playsinline>
+            <source src="assets/images/hero.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-video-overlay"></div>
+        </div>
         <div class="container hero-inner">
           <div class="hero-content">
             <p class="eyebrow">spacedoors</p>
-            <h1>Möhkəm, davamlı, görkəmli həllər</h1>
+            <h1>Özünüz üçün ən yaxşısını seçin</h1>
             <p class="hero-subtitle">
               Jaluz, panel, dəmir konstruksiyalar, avtomatik və pult sistemləri,
               müxtəlif naveslər, seyflər və giriş qapıları — hamısı bir ünvanda.
@@ -67,7 +74,7 @@
             <div class="hero-meta">
               <div>
                 <span class="meta-label">Materiallar</span>
-                <span class="meta-value">Jaluz, panel, dəmir</span>
+                <span class="meta-value">Aluminum, Metal</span>
               </div>
               <div>
                 <span class="meta-label">Xidmətlər</span>
@@ -75,7 +82,7 @@
               </div>
               <div>
                 <span class="meta-label">Layihələr</span>
-                <span class="meta-value">Ev, obyekt, sənaye</span>
+                <span class="meta-value">Ev, obyekt, sənayə</span>
               </div>
             </div>
           </div>
@@ -119,152 +126,503 @@
               seyflər və qapılar.
             </p>
           </div>
-          <div class="grid grid-3">
-            <article class="card" data-product-id="jaluz">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Jaluz" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Jaluz</h3>
-                <p data-field="description">
-                  Avtomatik və manual jaluz; mağazalar, qarajlar və anbarlar üçün.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
-                </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
 
-            <article class="card" data-product-id="autoJaluz">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Avtomatik jaluz" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Avtomatik jaluz</h3>
-                <p data-field="description">
-                  Uzaqdan idarəetmə, təhlükəsiz mexanizm və səssiz işləmə ilə rahat
-                  istifadə.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+          <!-- Digər xidmətlər -->
+          <div class="subsection">
+            <div class="grid grid-3">
+              <!-- Avtomatlaşdırma card -->
+              <article class="card card-gallery" data-gallery="automation">
+                <div class="card-image">
+                  <img id="automation-image" src="assets/products/avtomatlasdirma.jpeg" alt="Avtomatlaşdırma" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="automation" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="automation" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Avtomatlaşdırma (İtaliya, Belarusiya, Rusiya, Çin)</h3>
+                  <p>
+                    Yüksək keyfiyyətli avtomatlaşdırma sistemləri müxtəlif ölkələrdən. Peşəkar quraşdırma və texniki dəstək.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="panel">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Panel çəpər və darvazalar" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Panel</h3>
-                <p data-field="description">
-                  Bağ və sənaye sahələri üçün panel çəpərlər və darvazalar.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- Panel darvaza card -->
+              <article class="card card-gallery" data-gallery="panel">
+                <div class="card-image">
+                  <img id="panel-image" src="assets/products/paneldarvaza1.jpeg" alt="Panel tipli darvaza" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="panel" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="panel" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Panel tipli Darvaza</h3>
+                  <p>
+                    Möhkəm və estetik panel konstruksiyalı darvazalar. Həm yaşayış, həm də sənayə obyektləri üçün ideal seçimdir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="metal">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Dəmir konstruksiyalar" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Dəmir konstruksiyalar</h3>
-                <p data-field="description">
-                  Möhkəm və uzunömürlü metal konstruksiyalar, fərdi ölçülərlə.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- Seksiyalı qaraj qapıları card -->
+              <article class="card card-gallery" data-gallery="section">
+                <div class="card-image">
+                  <img id="section-image" src="assets/products/seksiya1.jpeg" alt="Seksiyalı qaraj qapıları" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="section" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="section" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Seksiyalı qaraj qapıları</h3>
+                  <p>
+                    İstilik izolyasiyalı və səssiz işləyən seksiyalı qaraj qapıları. Məkan qənaəti və maksimum rahatlıq yaradır.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="autoSystems">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Avtomatik sistemlər" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Avtomatik sistemlər</h3>
-                <p data-field="description">
-                  Qapı və jaluz üçün avtomatlaşdırma, sensor və təhlükəsizlik
-                  modulları.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- Jalüz rulon card -->
+              <article class="card card-gallery" data-gallery="jaluz">
+                <div class="card-image">
+                  <img id="jaluz-image" src="assets/products/jaluz1.jpeg" alt="Jalüz rulon" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="jaluz" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="jaluz" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Jalüz rulon (Türkiyə, Rusiya, Belarus)</h3>
+                  <p>
+                    Güclü qoruma və rahat istifadə üçün jalüz rulon sistemləri. Həm mağazalar, həm də evlər üçün uyğundur.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="remoteSystems">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Pult sistemləri" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Pult sistemləri</h3>
-                <p data-field="description">
-                  Uzaqdan idarəetmə pultları, kodlama və inteqrasiya xidmətləri.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- FotoCell şüşə qapılar card -->
+              <article class="card card-gallery" data-gallery="fotocel">
+                <div class="card-image">
+                  <img id="fotocel-image" src="assets/products/fotocel1.jpeg" alt="FotoCell şüşə qapılar" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="fotocel" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="fotocel" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>FotoCell şüşə qapılar</h3>
+                  <p>
+                    Avtomatik açılıb-bağlanan fotocell şüşə qapılar. Müasir görünüş və yüksək keçid rahatlığı təmin edir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="canopies">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Müxtəlif naveslər" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Müxtəlif naveslər</h3>
-                <p data-field="description">
-                  Qapı üstü, veranda və avto dayanacaq üçün naveslər.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- Rampa & körük card -->
+              <article class="card card-gallery" data-gallery="rampa">
+                <div class="card-image">
+                  <img id="rampa-image" src="assets/products/rampa1.jpeg" alt="Rampa & körük" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="rampa" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="rampa" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Rampa & körük (hermetizator)</h3>
+                  <p>
+                    Anbar və logistika üçün rampa və körük hermetizator sistemləri. İstilik itkisini azaldır və təhlükəsiz yükləmə yaradır.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="safe">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Seyf" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Seyf</h3>
-                <p data-field="description">
-                  Ev və ofis üçün səviyyəli təhlükəsizlik seyfləri, müxtəlif ölçülər.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- Şlaqbaum card -->
+              <article class="card card-gallery" data-gallery="slagbaum">
+                <div class="card-image">
+                  <img id="slagbaum-image" src="assets/products/slaqbaun1.jpeg" alt="Şlaqbaum" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="slagbaum" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="slagbaum" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Şlaqbaum</h3>
+                  <p>
+                    Giriş-çıxış nəzarəti üçün etibarlı şlaqbaum sistemləri. Avtodayanacaq və obyektlər üçün ideal həlldir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
 
-            <article class="card" data-product-id="doors">
-              <div class="card-image">
-                <img data-field="image" src="" alt="Qapılar" />
-              </div>
-              <div class="card-body">
-                <h3 data-field="title">Qapılar</h3>
-                <p data-field="description">
-                  Metaldan, paneldən və kombinə edilmiş materiallardan giriş qapıları.
-                </p>
-                <div class="card-meta">
-                  <span data-field="price">Qiymət: sorğu ilə</span>
+              <!-- Tent card -->
+              <article class="card card-gallery" data-gallery="tent">
+                <div class="card-image">
+                  <img id="tent-image" src="assets/products/tent1.jpeg" alt="Tent" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="tent" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="tent" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
-                <button class="link" data-open-contact> Sifariş et </button>
-              </div>
-            </article>
+                <div class="card-body">
+                  <h3>Tent</h3>
+                  <p>
+                    Müxtəlif ölçülü və dizaynlı tent sistemləri. Yağış, günəş və digər atmosfer şəraitindən qoruma üçün etibarlı həllər.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Bağ mebeli card -->
+              <article class="card card-gallery" data-gallery="bag">
+                <div class="card-image">
+                  <img id="bag-image" src="assets/products/bag1.jpeg" alt="Bağ mebeli" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="bag" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="bag" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Bağ mebelləri</h3>
+                  <p>
+                    Rahat və davamlı bağ mebelləri ilə açıq məkanınızı gözəlləşdirin. Hava şəraitinə davamlı materiallardan hazırlanır.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Pivot Villa Giriş qapıları card -->
+              <article class="card card-gallery" data-gallery="pivot">
+                <div class="card-image">
+                  <img id="pivot-image" src="assets/products/pivot1.jpeg" alt="Pivot Villa Giriş qapıları" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="pivot" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="pivot" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Pivot villa giriş qapıları</h3>
+                  <p>
+                    Premium dizaynlı pivot villa giriş qapıları ilə fərqli görünüş yaradın. Möhkəm konstruksiya və lüks estetika təqdim edir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Aluminum Villa Giriş Qapıları card -->
+              <article class="card card-gallery" data-gallery="aluminum">
+                <div class="card-image">
+                  <img id="aluminum-image" src="assets/products/alm1.jpeg" alt="Aluminum Villa Giriş Qapıları" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="aluminum" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="aluminum" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Alüminium villa giriş qapıları</h3>
+                  <p>
+                    Alüminium villa qapıları paslanmaya davamlı və uzunömürlüdür. Müasir dizayn və yüksək təhlükəsizlik təmin edir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Metal Giriş Qapıları card -->
+              <article class="card card-gallery" data-gallery="metal">
+                <div class="card-image">
+                  <img id="metal-image" src="assets/products/metal1.jpeg" alt="Metal Giriş Qapıları" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="metal" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="metal" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Metal giriş qapıları</h3>
+                  <p>
+                    Yüksək qoruma təmin edən möhkəm metal giriş qapıları. İstənilən ölçü və dizaynda hazırlanır.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Metal Darvazalar card -->
+              <article class="card card-gallery" data-gallery="mdr">
+                <div class="card-image">
+                  <img id="mdr-image" src="assets/products/mdr1.jpeg" alt="Metal Darvazalar" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="mdr" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="mdr" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Metal darvazalar</h3>
+                  <p>
+                    Dayanıqlı və zövqlü metal darvazalarla ərazinizi qoruyun. Uzun illər problemsiz istifadə üçün idealdır.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Aluminum Perilla card -->
+              <article class="card card-gallery" data-gallery="alp">
+                <div class="card-image">
+                  <img id="alp-image" src="assets/products/alp1.jpeg" alt="Aluminum Perilla" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="alp" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="alp" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Alüminium perilla</h3>
+                  <p>
+                    Yüngül və paslanmayan alüminium perillalar. Müasir interyer və eksteryer üçün mükəmməl seçimdir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Metall Perilla card -->
+              <article class="card card-gallery" data-gallery="mpr">
+                <div class="card-image">
+                  <img id="mpr-image" src="assets/products/mpr1.jpeg" alt="Metall Perilla" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="mpr" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="mpr" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Metal perilla</h3>
+                  <p>
+                    Möhkəm metal perillalar təhlükəsizlik və estetik görünüş yaradır. Balkon, pilləkən və həyət üçün uyğundur.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Metal Reşotka card -->
+              <article class="card card-gallery" data-gallery="mrs">
+                <div class="card-image">
+                  <img id="mrs-image" src="assets/products/mrs1.jpeg" alt="Metal Reşotka" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="mrs" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="mrs" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Metal reşotka</h3>
+                  <p>
+                    Pəncərə və obyektlər üçün metal reşotkalarla əlavə təhlükəsizlik təmin edin. Güclü material və uzunömürlü konstruksiya.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Naves, Besedka, Manqal card -->
+              <article class="card card-gallery" data-gallery="nbm">
+                <div class="card-image">
+                  <img id="nbm-image" src="assets/products/nbm1.jpeg" alt="Naves, Besedka, Manqal" />
+                  <button class="image-nav-btn image-nav-prev" data-prev-image="nbm" aria-label="Əvvəlki şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="image-nav-btn image-nav-next" data-next-image="nbm" aria-label="Növbəti şəkil">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h3>Naves, besedka, manqal</h3>
+                  <p>
+                    Həyətiniz üçün naves, besedka və manqal konstruksiyaları. Rahat istirahət və gözəl dizaynı bir araya gətirir.
+                  </p>
+                  <div class="card-meta">
+                    <span>Qiymət: sorğu ilə</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="link" data-open-contact> Sifariş et </button>
+                  </div>
+                </div>
+              </article>
+
           </div>
         </div>
       </section>
@@ -285,19 +643,19 @@
               <p>
                 Yağış və günəşdən qoruma üçün estetik və funksional naves həlləri.
               </p>
-              <button class="link" data-open-contact> Sifariş et </button>
+              <button class="link" data-open-contact> Sifariş et → </button>
             </article>
             <article class="card soft">
               <h3>Ev üçün qapı</h3>
               <p>
                 Təhlükəsiz, istilik izolyasiyalı və uzunömürlü giriş qapıları.
               </p>
-              <button class="link" data-open-contact> Sifariş et </button>
+              <button class="link" data-open-contact> Sifariş et → </button>
             </article>
             <article class="card soft">
               <h3>Sadə qapı</h3>
               <p>Büdcə dostu, praktik və klassik dizaynlı qapılar.</p>
-              <button class="link" data-open-contact> Sifariş et </button>
+              <button class="link" data-open-contact> Sifariş et → </button>
             </article>
           </div>
         </div>
@@ -345,46 +703,75 @@
             </p>
 
             <div class="contact-block">
-              <h3>Telefon</h3>
-              <a href="tel:+994503249853">+994 50 324 98 53</a>
-              <a href="tel:+994703249853">+994 70 324 98 53</a>
+              <h3>
+                <i class="fas fa-phone"></i>
+                Telefon
+              </h3>
+              <a href="tel:+994503249853">
+                <i class="fas fa-phone-alt"></i>
+                +994 50 324 98 53
+              </a>
+              <a href="tel:+994703249853">
+                <i class="fas fa-phone-alt"></i>
+                +994 70 324 98 53
+              </a>
             </div>
 
             <div class="contact-block">
-              <h3>WhatsApp</h3>
+              <h3>
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+              </h3>
               <a
                 href="https://wa.me/994503249853"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Yazın (050)</a
               >
+                <i class="fab fa-whatsapp"></i>
+                Yazın (050)
+              </a>
               <a
                 href="https://wa.me/994703249853"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Yazın (070)</a
               >
+                <i class="fab fa-whatsapp"></i>
+                Yazın (070)
+              </a>
             </div>
 
             <div class="contact-block">
-              <h3>Sosial şəbəkələr</h3>
+              <h3>
+                <i class="fas fa-share-alt"></i>
+                Sosial şəbəkələr
+              </h3>
               <a
                 href="https://www.instagram.com/reel/DPO5QkhCNri/?igsh=MXhrMjN6MjRncHI4dw=="
                 target="_blank"
                 rel="noopener noreferrer"
-                >Instagram</a
               >
+                <i class="fab fa-instagram"></i>
+                Instagram
+              </a>
               <a
                 href="https://youtube.com/@vidadiismaylov3683?si=mAUH9ukiO7PwPY7a"
                 target="_blank"
                 rel="noopener noreferrer"
-                >YouTube</a
               >
+                <i class="fab fa-youtube"></i>
+                YouTube
+              </a>
             </div>
 
             <div class="contact-block">
-              <h3>Email</h3>
-              <a href="mailto:info@darvazan.az">info@darvazan.az</a>
+              <h3>
+                <i class="fas fa-envelope"></i>
+                Email
+              </h3>
+              <a href="mailto:info@darvazan.az">
+                <i class="fas fa-envelope-open"></i>
+                info@darvazan.az
+              </a>
             </div>
           </div>
 
@@ -435,89 +822,6 @@
               kopyalana bilər.
             </p>
           </form>
-        </div>
-      </section>
-
-      <!-- Admin -->
-      <section id="admin" class="section admin-section">
-        <div class="container">
-          <details class="admin-toggle">
-            <summary>Админ‑панель spacedoors (для владельца)</summary>
-            <div class="admin-content">
-              <div class="admin-form">
-                <label class="field">
-                  <span>Товар</span>
-                  <select id="admin-product-select"></select>
-                </label>
-
-                <label class="field">
-                  <span>Название</span>
-                  <input
-                    id="admin-title"
-                    type="text"
-                    placeholder="Например: Jaluz"
-                  />
-                </label>
-
-                <label class="field">
-                  <span>Описание</span>
-                  <textarea
-                    id="admin-description"
-                    rows="3"
-                    placeholder="Краткое описание товара..."
-                  ></textarea>
-                </label>
-
-                <label class="field">
-                  <span>Цена (от… / AZN)</span>
-                  <input
-                    id="admin-price"
-                    type="text"
-                    placeholder="Например: 250 AZN"
-                  />
-                </label>
-
-                <label class="field">
-                  <span>Ссылка на фото</span>
-                  <input
-                    id="admin-image"
-                    type="text"
-                    placeholder="Например: images/jaluz.jpg"
-                  />
-                </label>
-
-                <div class="admin-actions">
-                  <button id="admin-save" class="btn btn-primary" type="button">
-                    Сохранить
-                  </button>
-                  <button id="admin-reset" class="btn btn-outline" type="button">
-                    Сбросить по умолчанию
-                  </button>
-                </div>
-
-                <p class="admin-note">
-                  Изменения сохраняются в этом браузере (localStorage). Чтобы увидеть
-                  фото, положите файлы в папку <strong>images</strong> рядом с
-                  index.html и укажите путь, например
-                  <code>images/jaluz.jpg</code>.
-                </p>
-              </div>
-
-              <div class="admin-help">
-                <h3>Как добавить фото к карточкам</h3>
-                <ol>
-                  <li>Создайте папку <strong>images</strong> в папке spacedoors.</li>
-                  <li>Положите туда свои фотографии, например <code>jaluz.jpg</code>.</li>
-                  <li>
-                    Откройте этот сайт в браузере, разверните «Админ‑панель», выберите
-                    нужный товар и в поле «Ссылка на фото» напишите путь, например
-                    <code>images/jaluz.jpg</code>.
-                  </li>
-                  <li>Нажмите «Сохранить» — карточка обновится с новым фото.</li>
-                </ol>
-              </div>
-            </div>
-          </details>
         </div>
       </section>
     </main>

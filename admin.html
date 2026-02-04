@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Админ‑панель spacedoors (для владельца)</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-mark">SD</span>
+          <span class="logo-text">spacedoors</span>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Главная</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section admin-section">
+        <div class="container">
+          <div class="admin-header">
+            <div>
+              <h1 class="admin-title">Админ‑панель</h1>
+              <p class="admin-subtitle">Управление товарами и карточками на сайте spacedoors</p>
+            </div>
+            <a href="index.html" class="btn btn-outline">← Вернуться на сайт</a>
+          </div>
+
+          <div class="admin-content">
+            <div class="admin-form-card">
+              <div class="admin-form-header">
+                <h2>Редактирование товара</h2>
+                <p>Выберите товар и отредактируйте его данные</p>
+              </div>
+
+              <div class="admin-form-body">
+                <label class="field">
+                  <span>Товар</span>
+                  <select id="admin-product-select" class="field-select"></select>
+                </label>
+
+                <label class="field">
+                  <span>Название</span>
+                  <input
+                    id="admin-title"
+                    type="text"
+                    placeholder="Например: Jaluz"
+                  />
+                </label>
+
+                <label class="field">
+                  <span>Описание</span>
+                  <textarea
+                    id="admin-description"
+                    rows="4"
+                    placeholder="Краткое описание товара..."
+                  ></textarea>
+                </label>
+
+                <label class="field">
+                  <span>Цена (от… / AZN)</span>
+                  <input
+                    id="admin-price"
+                    type="text"
+                    placeholder="Например: 250 AZN"
+                  />
+                </label>
+
+                <label class="field">
+                  <span>Ссылка на фото</span>
+                  <input
+                    id="admin-image"
+                    type="text"
+                    placeholder="Например: images/jaluz.jpg"
+                  />
+                </label>
+
+                <div class="admin-actions">
+                  <button id="admin-save" class="btn btn-primary" type="button">
+                    💾 Сохранить изменения
+                  </button>
+                  <button id="admin-reset" class="btn btn-outline" type="button">
+                    🔄 Сбросить по умолчанию
+                  </button>
+                </div>
+              </div>
+
+              <div class="admin-form-footer">
+                <p class="admin-note">
+                  <strong>ℹ️ Важно:</strong> Изменения сохраняются в этом браузере (localStorage). 
+                  Чтобы увидеть фото, положите файлы в папку <strong>images</strong> рядом с
+                  index.html и укажите путь, например <code>images/jaluz.jpg</code>.
+                </p>
+              </div>
+            </div>
+
+            <div class="admin-help-card">
+              <div class="admin-help-header">
+                <h3>📸 Как добавить фото к карточкам</h3>
+              </div>
+              <div class="admin-help-body">
+                <ol class="admin-help-list">
+                  <li>
+                    <strong>Создайте папку images</strong> в папке spacedoors.
+                  </li>
+                  <li>
+                    <strong>Положите фотографии</strong> в эту папку, например <code>jaluz.jpg</code>.
+                  </li>
+                  <li>
+                    <strong>Выберите товар</strong> в форме слева и в поле «Ссылка на фото» 
+                    напишите путь, например <code>images/jaluz.jpg</code>.
+                  </li>
+                  <li>
+                    <strong>Нажмите «Сохранить»</strong> — карточка обновится с новым фото на главной странице.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-main">
+          <div class="logo">
+            <span class="logo-mark">SD</span>
+            <span class="logo-text">spacedoors</span>
+          </div>
+          <p>
+            Админ‑панель для управления товарами и карточками на сайте spacedoors.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <span
+            >© <span id="year"></span> spacedoors. Bütün hüquqlar qorunur.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>
