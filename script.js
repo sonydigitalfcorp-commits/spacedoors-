@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Cart functionality
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+  // Migrate old cart format (string array) to new format (object array)
+  if (cart.length > 0 && typeof cart[0] === "string") {
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
   const cartToggle = document.getElementById("cart-toggle");
   const cartSidebar = document.getElementById("cart-sidebar");
   const cartOverlay = document.getElementById("cart-overlay");
@@ -32,8 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const cartItem = document.createElement("div");
         cartItem.className = "cart-item";
         cartItem.innerHTML = `
+          <div class="cart-item-image">
+            <img src="${item.image}" alt="${item.name}" />
+          </div>
           <div class="cart-item-info">
-            <h4>${item}</h4>
+            <h4>${item.name}</h4>
           </div>
           <button class="cart-item-remove" data-index="${index}" aria-label="Sil">
             <i class="fas fa-trash"></i>
@@ -56,9 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Add to cart
-  function addToCart(productName) {
-    if (!cart.includes(productName)) {
-      cart.push(productName);
+  function addToCart(productName, productImage) {
+    // Check if product already exists in cart
+    const existingIndex = cart.findIndex(item => item.name === productName);
+    if (existingIndex === -1) {
+      cart.push({
+        name: productName,
+        image: productImage
+      });
       localStorage.setItem("cart", JSON.stringify(cart));
       updateCartBadge();
       renderCart();
@@ -83,12 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardImage = card.querySelector(".card-image");
     if (cardImage && !cardImage.querySelector(".add-to-cart-icon")) {
       const productName = cardTitle.textContent.trim();
+      const imgElement = cardImage.querySelector("img");
+      const productImage = imgElement ? imgElement.src : "";
       const addBtn = document.createElement("button");
       addBtn.className = "add-to-cart-icon";
       addBtn.innerHTML = '<i class="fas fa-plus"></i>';
       addBtn.dataset.product = productName;
       addBtn.setAttribute("aria-label", "Səbətə əlavə et");
-      addBtn.addEventListener("click", () => addToCart(productName));
+      addBtn.addEventListener("click", () => addToCart(productName, productImage));
       cardImage.appendChild(addBtn);
     }
   });
@@ -118,7 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let message = "Salam! Aşağıdakı məhsullar üzrə sifariş vermək istəyirəm:\n\n";
     
     cart.forEach((item, index) => {
-      message += `${index + 1}. ${item}\n`;
+      message += `${index + 1}. ${item.name}\n`;
+      if (item.image) {
+        message += `   Şəkil: ${item.image}\n`;
+      }
     });
     
     message += `\nƏlaqə nömrəsi: +994 55 474 17 71`;
