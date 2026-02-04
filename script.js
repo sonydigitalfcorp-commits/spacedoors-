@@ -1,4 +1,136 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Cart functionality
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartToggle = document.getElementById("cart-toggle");
+  const cartSidebar = document.getElementById("cart-sidebar");
+  const cartOverlay = document.getElementById("cart-overlay");
+  const cartClose = document.getElementById("cart-close");
+  const cartItems = document.getElementById("cart-items");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartFooter = document.getElementById("cart-footer");
+  const cartBadge = document.getElementById("cart-badge");
+  const whatsappOrderBtn = document.getElementById("whatsapp-order");
+
+  // Update cart badge
+  function updateCartBadge() {
+    cartBadge.textContent = cart.length;
+    cartBadge.style.display = cart.length > 0 ? "flex" : "none";
+  }
+
+  // Render cart items
+  function renderCart() {
+    if (cart.length === 0) {
+      cartEmpty.style.display = "block";
+      cartFooter.style.display = "none";
+      cartItems.innerHTML = "";
+      cartItems.appendChild(cartEmpty);
+    } else {
+      cartEmpty.style.display = "none";
+      cartFooter.style.display = "block";
+      cartItems.innerHTML = "";
+      cart.forEach((item, index) => {
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+        cartItem.innerHTML = `
+          <div class="cart-item-info">
+            <h4>${item}</h4>
+          </div>
+          <button class="cart-item-remove" data-index="${index}" aria-label="Sil">
+            <i class="fas fa-trash"></i>
+          </button>
+        `;
+        cartItems.appendChild(cartItem);
+      });
+
+      // Add remove event listeners
+      document.querySelectorAll(".cart-item-remove").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const index = parseInt(e.currentTarget.dataset.index);
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartBadge();
+          renderCart();
+        });
+      });
+    }
+  }
+
+  // Add to cart
+  function addToCart(productName) {
+    if (!cart.includes(productName)) {
+      cart.push(productName);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartBadge();
+      renderCart();
+      
+      // Show notification
+      const btn = event.target.closest(".add-to-cart-icon");
+      if (btn) {
+        const originalIcon = btn.querySelector("i").className;
+        btn.querySelector("i").className = "fas fa-check";
+        btn.classList.add("added");
+        setTimeout(() => {
+          btn.querySelector("i").className = originalIcon;
+          btn.classList.remove("added");
+        }, 2000);
+      }
+    }
+  }
+
+  // Add "Add to cart" buttons to all cards
+  document.querySelectorAll(".card h3").forEach(cardTitle => {
+    const card = cardTitle.closest(".card");
+    const cardImage = card.querySelector(".card-image");
+    if (cardImage && !cardImage.querySelector(".add-to-cart-icon")) {
+      const productName = cardTitle.textContent.trim();
+      const addBtn = document.createElement("button");
+      addBtn.className = "add-to-cart-icon";
+      addBtn.innerHTML = '<i class="fas fa-plus"></i>';
+      addBtn.dataset.product = productName;
+      addBtn.setAttribute("aria-label", "Səbətə əlavə et");
+      addBtn.addEventListener("click", () => addToCart(productName));
+      cardImage.appendChild(addBtn);
+    }
+  });
+
+  // Open/close cart sidebar
+  function openCart() {
+    cartSidebar.classList.add("active");
+    document.body.classList.add("cart-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCart() {
+    cartSidebar.classList.remove("active");
+    document.body.classList.remove("cart-open");
+    document.body.style.overflow = "";
+  }
+
+  cartToggle?.addEventListener("click", openCart);
+  cartClose?.addEventListener("click", closeCart);
+  cartOverlay?.addEventListener("click", closeCart);
+
+  // WhatsApp order
+  whatsappOrderBtn?.addEventListener("click", () => {
+    if (cart.length === 0) return;
+    
+    const phoneNumber = "994554741771";
+    let message = "Salam! Aşağıdakı məhsullar üzrə sifariş vermək istəyirəm:\n\n";
+    
+    cart.forEach((item, index) => {
+      message += `${index + 1}. ${item}\n`;
+    });
+    
+    message += `\nƏlaqə nömrəsi: +994 55 474 17 71`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  });
+
+  // Initialize
+  updateCartBadge();
+  renderCart();
+
   // Hero video loop with delay
   const heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
@@ -185,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `Email: ${encodeURIComponent(email)}%0A` +
         `Mesaj: ${encodeURIComponent(message)}`;
 
-      const whatsappUrl = `https://wa.me/994503249853?text=${text}`;
+      const whatsappUrl = `https://wa.me/994554741771?text=${text}`;
 
       window.open(whatsappUrl, "_blank");
     });
